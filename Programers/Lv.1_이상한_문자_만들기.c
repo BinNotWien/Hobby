@@ -9,6 +9,7 @@
 
 char* solution(const char* s) 
 {
+
     char* answer = (char*)malloc(1 * strlen(s) + 1); 
     // 짝수번째 +1 은 NULL 문자 까지 
 
