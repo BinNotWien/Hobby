@@ -26,7 +26,7 @@ char* solution(const char* s)
         return answer;
     }
 }
-
+ 
 
 int main(void)
 {
