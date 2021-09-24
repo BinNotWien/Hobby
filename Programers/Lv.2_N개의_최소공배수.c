@@ -11,7 +11,7 @@ int gcd(int a, int b) // 유클리드 호제법
 {
     int c;
 
-    while (b != 0) 
+    while (b != 0)
     {
         c = a % b;
         a = b;
@@ -26,35 +26,35 @@ int lcs(int a, int b) // 최소공배수
     return a * b / gcd(a, b);
 }
 
-int solution(int arr[], size_t arr_len) 
+int solution(int arr[], size_t arr_len)
 {
-	int answer = 1;
+    int answer = 1;
 
-    for (int i = 0; i < arr_len; i++) 
+    for (int i = 0; i < arr_len; i++)
     {
         answer = lcs(answer, arr[i]);
     }
 
-	return answer;
+    return answer;
 }
 
-int solution2(int arr[], size_t arr_len) 
+int solution2(int arr[], size_t arr_len)
 {
     long answer = 1;
     int sw = 0;
 
-    while (sw != 1) 
+    while (sw != 1)
     {
         for (int j = 0; j < arr_len; j++)
         {
             if (answer % arr[j] != 0) sw = 1;
         }
 
-        if (sw == 0) 
+        if (sw == 0)
         {
             break;
         }
-        else 
+        else
         {
             answer++;
         }
@@ -71,5 +71,5 @@ int main(void)
     printf("%d\n", solution(arr, 4));
     printf("%d\n", solution2(arr, 4));
 
-	return 0;
+    return 0;
 }
