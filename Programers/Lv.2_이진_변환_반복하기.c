@@ -13,9 +13,11 @@ int* solution(const char* s)
     // x = 제거할 0의 개수
     // c = 0 제거 후 문자열의 길이
 
-    for (answer[1] = x = i = 0; s[i]; i++) // 0의 개수를 셈
+    for (answer[1] = x = i = 0; s[i]; i++) // s의 모든 0을 제거
     {
         s[i] % 2 ? x++ : answer[1]++;
+        // x++, 1의 개수
+        // answer[1]++, 제거한 0의 개수
     }
 
     for (answer[0] = 1; x - 1; x = c, answer[0]++) // 이진 변환
@@ -23,6 +25,8 @@ int* solution(const char* s)
         for (c = 0; x; x /= 2) // 0 제거
         {
             x % 2 ? c++ : answer[1]++;
+            // c++, 변환 후 십진수
+            // answer[1]++, 제거한 0의 개수에 추가
         }
     }
 
@@ -35,7 +39,7 @@ int* solution(const char* s)
 
 int main(void)
 {
-    char* x = "110010101001";
+    char* x = "01110";
     int* result = solution(x);
 
     printf("%d %d", *result, result[1]);
