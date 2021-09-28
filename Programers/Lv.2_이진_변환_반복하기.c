@@ -8,25 +8,28 @@
 
 int* solution(const char* s)
 {
-    int* answer = (int*)malloc(sizeof(int) * 2);
+    int answer[2] = { 0, };
     int x, c, i;
-    // x = 문자열 s의 길이
+    // x = 제거할 0의 개수
+    // c = 0 제거 후 문자열의 길이
 
-    for (answer[1] = x = i = 0; s[i]; i++) 
-    { 
+    for (answer[1] = x = i = 0; s[i]; i++) // 0의 개수를 셈
+    {
         s[i] % 2 ? x++ : answer[1]++;
     }
-        
-    for (answer[0] = 1; x - 1; x = c, answer[0]++)
+
+    for (answer[0] = 1; x - 1; x = c, answer[0]++) // 이진 변환
     {
-        for (c = 0; x; x /= 2)
+        for (c = 0; x; x /= 2) // 0 제거
         {
             x % 2 ? c++ : answer[1]++;
         }
     }
 
+
     return answer;
-    // answer[0] = 이진 변환 횟수, answer[1] = 제거한 0의 개수
+    // answer[0] = 이진 변환 횟수
+    // answer[1] = 제거한 0의 개수
 }
 
 
@@ -37,5 +40,5 @@ int main(void)
 
     printf("%d %d", *result, result[1]);
 
-	return 0;
+    return 0;
 }
