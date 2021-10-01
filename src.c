@@ -15,7 +15,7 @@ int* solution(int n)
     int re = n;
     int col = 0, row = -1; // 0번째 부터 채우기 위함
     int a = 0, b = 0, c = 0, num = 0;
-
+       
     for (a = 0; a < re; a++)
     {
         b = re - a; // 행 이동
