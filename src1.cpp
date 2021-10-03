@@ -3,24 +3,31 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
-vector<int> solution(int n, int m) 
+int solution(vector<int> citations) 
 {
-    vector<int> answer;
+    int answer = 0;
+    sort(citations.begin(), citations.end(), greater<int>());
 
-    int a = n, b = m, r;
-
-    while (b != 0) // 유클리드 호제법 - 최대공약수
+    if (!citations[0])
     {
-        r = a % b;
-        a = b;
-        b = r;
+        return 0;
     }
 
-    answer.push_back(a);
-    answer.push_back(n * m / a); // 최대공배수
+    for (int i = 0; i < citations.size(); i++) 
+    {
+        if (citations[i] > i)
+        {
+            answer++;
+        }
+        else
+        {
+            break;
+        }
+    }
 
     return answer;
 }
@@ -28,8 +35,11 @@ vector<int> solution(int n, int m)
 
 int main(void) 
 {
-    solution(2, 5);
+    printf("%d\n", solution({ 3, 0, 6, 1, 5 }));
 
+    printf("%d\n", solution({ 1, 7, 0, 1, 6, 4 }));
+
+    printf("%d", solution({ 2, 7, 5 }));
 
     return 0;
 }
