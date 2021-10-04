@@ -21,7 +21,7 @@ void DFS(vector<int> numbers, int target, int sum, int cnt) // 재귀
         return;
     }
 
-    // 최대깊이까지 더하거나 뺀 상태로 탐색
+    // 최대깊이까지 더하거나 뺀 상태로 계속 탐색
     DFS(numbers, target, sum + numbers[cnt], cnt + 1);
     DFS(numbers, target, sum - numbers[cnt], cnt + 1);
 }
