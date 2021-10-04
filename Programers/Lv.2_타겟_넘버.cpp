@@ -12,7 +12,7 @@ int answer = 0;
 
 void DFS(vector<int> numbers, int target, int sum, int cnt) // 재귀
 {
-    if (cnt == numbers.size()) // 사이즈만큼 반복 후
+    if (cnt == numbers.size()) // 마지막까지 순회 후
     {
         if (sum == target) // 타겟을 찾으면
         {
@@ -21,6 +21,7 @@ void DFS(vector<int> numbers, int target, int sum, int cnt) // 재귀
         return;
     }
 
+    // 최대깊이까지 더하거나 뺀 상태로 탐색
     DFS(numbers, target, sum + numbers[cnt], cnt + 1);
     DFS(numbers, target, sum - numbers[cnt], cnt + 1);
 }
