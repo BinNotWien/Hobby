@@ -12,11 +12,11 @@ int answer = 0;
 
 void DFS(vector<int> numbers, int target, int sum, int cnt) // 재귀
 {
-    if (cnt == numbers.size())
+    if (cnt == numbers.size()) // 사이즈만큼 반복 후
     {
-        if (sum == target)
+        if (sum == target) // 타겟을 찾으면
         {
-            answer++;
+            answer++; // 경우의 수 증가
         }
         return;
     }
@@ -33,11 +33,11 @@ int solution(vector<int> numbers, int target)
 }
 
 
-int main(void)
+int main(void) 
 {
     int target = 3;
     vector<int> num = { 1,1,1,1,1 };
-
+    
     cout << solution(num, target) << endl;
 
     return 0;

@@ -8,21 +8,26 @@
 
 using namespace std;
 
-string solution(vector<string> seoul)
+int answer = 0;
+
+void DFS(vector<int> numbers, int target, int sum, int cnt)
 {
-    string answer = "";
-
-    answer += "김서방은 ";
-
-    for (int i = 0; i < seoul.size(); i++)
+    if (cnt == numbers.size())
     {
-        if (seoul[i] == "Kim") // "Kim"을 찾으면
+        if (sum == target)
         {
-            answer += to_string(i); // to_string(), 숫자 타입 -> 문자열
+            answer++;
         }
+        return;
     }
 
-    answer += "에 있다";
+    DFS(numbers, target, sum + numbers[cnt], cnt + 1);
+    DFS(numbers, target, sum - numbers[cnt], cnt + 1);
+}
+
+int solution(vector<int> numbers, int target)
+{
+    DFS(numbers, target, 0, 0);
 
     return answer;
 }
@@ -30,9 +35,7 @@ string solution(vector<string> seoul)
 
 int main(void) 
 {
-    vector<string> arr = { "Jane", "Kim" };
-
-    cout << solution(arr) << endl;
+    
 
     return 0;
 }
