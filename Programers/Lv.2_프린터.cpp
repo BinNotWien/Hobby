@@ -8,21 +8,21 @@
 
 using namespace std;
 
-int solution(vector<int> priorities, int location) 
+int solution(vector<int> priorities, int location)
 {
     int answer = 0;
     int index = 0;
-    queue<pair<int, int>> q; // 큐<페어>
+    queue<pair<int, int>> q;
     priority_queue<int> pq; // 우선순위 큐
 
-    for (const auto& p : priorities) 
+    for (const auto& p : priorities)
     {
         q.push({ p,index++ }); // 우선순위 - index
         pq.push(p); // 우선순위
     }
 
     int order = 1;
-    while (!q.empty()) 
+    while (!q.empty())
     {
         pair<int, int> cur = q.front();
 
@@ -33,14 +33,14 @@ int solution(vector<int> priorities, int location)
                 return order;
             }
             // 인쇄한 걸로 치고 둘다 팝, 이후 순번 증가
-            q.pop(); 
+            q.pop();
             pq.pop();
             order++;
         }
         else // 우선순위가 낮아 프린터를 못하니
         {
-            q.push(cur); // 뒤에 추가
-            q.pop(); // 앞에 제거(중복 제거)
+            q.push(cur); // 앞의 원소를
+            q.pop(); // 뒤로 보냄(중복 제거)
         }
     }
 }

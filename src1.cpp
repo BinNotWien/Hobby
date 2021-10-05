@@ -39,8 +39,8 @@ int solution(vector<int> priorities, int location)
         }
         else // 우선순위가 낮아 프린터를 못하니
         {
-            q.push(cur); // 뒤에 추가
-            q.pop(); // 앞에 제거(중복 제거)
+            q.push(cur); // 앞의 원소를
+            q.pop(); // 뒤로 보냄(중복 제거)
         }
     }
 }
