@@ -12,7 +12,7 @@ int solution(vector<int> priorities, int location)
 {
     int answer = 0;
     int index = 0;
-    queue<pair<int, int>> q; 
+    queue<pair<int, int>> q; // 큐<페어>
     priority_queue<int> pq; // 우선순위 큐
 
     for (const auto& p : priorities) 
